@@ -1,12 +1,20 @@
 <template>
   <div class="app">
-    <JobList :jobs="jobs" />
+    <header>
+      <div class="order">
+        <button @click="handleClick('title')">order by title</button>
+        <button @click="handleClick('salary')">order by salary</button>
+        <button @click="handleClick('location')">order by location</button>
+      </div>
+    </header>
+    <JobList :jobs="jobs" :order="order" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref, toRefs } from "vue";
 import Job from "./types/Jobs";
+import OrderTerms from "./types/OrderTerms";
 import JobList from "./components/JobList.vue";
 
 export default defineComponent({
@@ -25,8 +33,17 @@ export default defineComponent({
         id: 5,
       },
     ]);
+
+    const order = ref<OrderTerms>("title");
+
+    const handleClick = (term: OrderTerms) => {
+      order.value = term;
+    };
+
     return {
       jobs,
+      handleClick,
+      order,
     };
   },
 });

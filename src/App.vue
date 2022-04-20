@@ -1,6 +1,9 @@
 <template>
   <div class="app">
     <header>
+      <div>
+        <h1>Job List</h1>
+      </div>
       <div class="order">
         <button @click="handleClick('title')">order by title</button>
         <button @click="handleClick('salary')">order by salary</button>

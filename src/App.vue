@@ -1,7 +1,8 @@
 <template>
   <div class="app">
     <header>
-      <div>
+      <div class="title">
+        <img src="./assets/heart.svg" alt="logo" />
         <h1>Job List</h1>
       </div>
       <div class="order">
@@ -68,5 +69,16 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+}
+header .title {
+  display: flex;
+  justify-content: center;
+}
+header img {
+  width: 60px;
+  margin-right: 20px;
+}
+header h1 {
+  font-size: 3em;
 }
 </style>
